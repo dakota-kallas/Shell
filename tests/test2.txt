@@ -1,0 +1,21 @@
+sleep 5 & sleep 7 & sleep 9 & sleep 11 &
+jobs
+whoami
+
+sleep 5
+jobs
+whoami
+
+sleep 2
+jobs
+whoami
+
+wait
+jobs
+whoami
+
+sleep 5 & sleep 7 &
+jobs
+fg
+jobs
+history

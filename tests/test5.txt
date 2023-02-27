@@ -1,0 +1,8 @@
+tests/a.out < tests/in.txt
+
+sleep 3
+
+tests/a.out > tests/out.txt
+cat tests/out.txt
+
+history

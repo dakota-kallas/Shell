@@ -1,0 +1,12 @@
+ls
+
+pwd
+date
+whoami
+
+sleep 5
+echo Hello
+ls
+
+pwd
+

@@ -1,0 +1,8 @@
+date
+pwd
+ls
+ls tests
+whoami
+
+date
+history

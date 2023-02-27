@@ -1,0 +1,8 @@
+sleep 5 & sleep 7 & sleep 9 & sleep 11 &
+jobs ; sleep 5 ; jobs
+
+wait
+
+sleep 5 & sleep 7 & sleep 9 & fg 6 ; sleep 11 &
+jobs ; sleep 4 & jobs ; sleep 3
+exit

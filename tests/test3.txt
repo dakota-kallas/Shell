@@ -1,0 +1,10 @@
+ls
+
+pwd ; sleep 5 ; date
+whoami
+
+sleep 5 ; echo Hello
+ls
+
+pwd
+exit
