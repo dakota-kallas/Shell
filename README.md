@@ -1,13 +1,9 @@
-# CS441/541 Shell Project
+# Simple UNIX Shell
 
 ## Author(s):
 
-- Dakota Kallas
-- Jack Parker
-
-## Date:
-
-Feburary 26th, 2023
+- <a href="https://github.com/dakota-kallas">Dakota Kallas</a>
+- <a href="https://github.com/jack-parkerr">Jack Parker</a>
 
 ## Description:
 
@@ -17,7 +13,7 @@ The shell's interactive mode should continuously prompt the user for input and e
 
 In batch mode, the shell should accept a file name as input and execute a list of commands from that file. The shell should be able to handle errors, such as when a command does not exist or when a file cannot be executed.
 
-The implementation of the Unix shell will require a good understanding of process management, system calls, and file handling. The shell will also need to support input/output redirection and piping.
+This project was written for a partner project in CS441 at the University of Wisconsin-La Crosse during the Spring 2023 semester.
 
 ## How to build the software
 
