@@ -147,7 +147,7 @@ int interactive_mode(void)
         }
         if (input[0] == '\n')
         {
-            break; // user pressed Enter to exit
+            continue; // user pressed Enter to exit
         }
 
         parse_job(input);
@@ -189,6 +189,7 @@ void parse_job(char *input)
     char *word;
     bool in_opened = false;
     bool out_opened = false;
+    bool more_args = true;
 
     job_t *current_job = (job_t *)malloc(sizeof(job_t));
     // allocate memory for argv
@@ -254,11 +255,13 @@ void parse_job(char *input)
             if (file_output && !out_opened)
             { // open the file for outputting to
                 out_opened = true;
+                more_args = false;
                 output_file = open(word, O_CREAT | O_TRUNC | O_RDWR, 0644);
             }
             if (file_input && !in_opened)
             { // open the file for reading from
                 in_opened = true;
+                more_args = false;
                 input_file = open(word, O_RDONLY);
             }
 
@@ -268,10 +271,15 @@ void parse_job(char *input)
                 strcpy(current_job->binary, word);
                 first = false;
             }
-            // allocate memory for the argument string and copy word to it
-            current_job->argv[argc] = malloc(strlen(word) + 1);
-            strcpy(current_job->argv[argc], word);
-            argc++;
+
+            if (more_args)
+            {
+                // allocate memory for the argument string and copy word to it
+                current_job->argv[argc] = malloc(strlen(word) + 1);
+                strcpy(current_job->argv[argc], word);
+                argc++;
+            }
+            
         }
 
         word = strtok(NULL, " "); // get the next word
@@ -408,6 +416,7 @@ int launch_job(job_t *loc_job)
 
             execvp(loc_job->binary, loc_job->argv);
             fprintf(stderr, "Error: Invalid command.\n");
+            exit(-1);
         }
         else // parent
         {
