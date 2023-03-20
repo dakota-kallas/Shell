@@ -44,7 +44,3 @@ Most batch files will not contain the `exit` command and will terminate by reach
 ## How the software was tested
 
 This repository is set up with an automatic set of tests that can be run and checked against for a valid output with the `make check` command. Those tests can be found in the `.\given-tests\` directory, along with their expected outputs. There is another set of tests that can be found in the `.\tests\` directory which help test behavior of the program given behavior that is either unusual or touches a specific requirement of the tool. Details on each test can be found in the `README.md` in the `.\tests\` directory.
-
-## Known bugs and problem areas
-
-- Error handling can be weird if waitpid ever fails (defaulting to return -1)
